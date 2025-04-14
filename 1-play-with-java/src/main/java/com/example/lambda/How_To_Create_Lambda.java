@@ -1,4 +1,4 @@
-package com.example;
+package com.example.lambda;
 
 
 import java.util.function.*;

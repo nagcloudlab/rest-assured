@@ -1,4 +1,4 @@
-package com.example;
+package com.example.lambda;
 
 
 
@@ -10,33 +10,9 @@ package com.example;
 
  */
 
+import com.example.model.Apple;
+
 import java.util.List;
-
-class Apple{
-    int weight;
-    String color;
-
-    public Apple(int weight, String color) {
-        this.weight = weight;
-        this.color = color;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    @Override
-    public String toString() {
-        return  "Apple{" +
-                "weight=" + weight +
-                ", color='" + color + '\'' +
-                '}';
-    }
-}
 
 
 // User Defined types in java -> interface, class , enum , annotations , record
@@ -77,7 +53,7 @@ class WeightPredicate implements Predicate {
 /*
  Why we need Lambda Expressions ( function ) in Java?
  */
-public class Ex1 {
+public class Why_We_Need_Lambda {
     public static void main(String[] args) {
 
         List<Apple> inventory = List.of(
