@@ -1,4 +1,4 @@
-package com.example.streams;
+package com.example.stream;
 
 
 import com.example.model.Dish;
@@ -9,6 +9,23 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 // to write data processing pipelines in declarative way
+/*
+
+data processing
+e.g
+
+    -> filtering
+    -> soring
+    -> transformation
+    -> sum/avg/min/max
+    -> exist
+    -> grouping
+    -> joining
+    ....
+
+ */
+
+
 public class Why_We_Need_Stream_Api {
 
     public static void main(String[] args) {

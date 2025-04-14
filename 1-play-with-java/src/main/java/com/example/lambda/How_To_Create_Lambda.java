@@ -11,7 +11,7 @@ interface MyFunctionalInterface {
     void myMethod(); // sam ( single abstract method)
 }
 
-public class Ex2 {
+public class How_To_Create_Lambda {
 
     public static void main(String[] args) {
 

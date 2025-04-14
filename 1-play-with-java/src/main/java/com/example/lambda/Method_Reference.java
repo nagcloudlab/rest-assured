@@ -31,7 +31,7 @@ class FoodUtil{
 
 }
 
-public class Ex3 {
+public class Method_Reference {
 
     public static void main(String[] args) {
 
