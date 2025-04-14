@@ -26,7 +26,7 @@ e.g
  */
 
 
-public class Why_We_Need_Stream_Api {
+public class Why_We_Need_Stream {
 
     public static void main(String[] args) {
 
