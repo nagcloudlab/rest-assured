@@ -8,10 +8,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-// to write data processing pipelines in declarative way
 /*
+// to write data processing pipelines in declarative way
 
-data processing
 e.g
 
     -> filtering

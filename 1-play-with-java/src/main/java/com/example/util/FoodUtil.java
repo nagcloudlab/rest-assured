@@ -2,7 +2,7 @@ package com.example.util;
 
 import java.util.List;
 
-class FoodUtil {
+public class FoodUtil {
     private List<String> nonVegFoodList = List.of(
             "Chicken",
             "Fish",
