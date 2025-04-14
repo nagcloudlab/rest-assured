@@ -3,11 +3,9 @@ package com.example.lambda;
 
 
 /*
-
     style of programming
     1. imperative programming
     2. declarative programming
-
  */
 
 import com.example.model.Apple;

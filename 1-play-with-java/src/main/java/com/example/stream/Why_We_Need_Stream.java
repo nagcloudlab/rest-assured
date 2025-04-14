@@ -10,9 +10,7 @@ import java.util.stream.Collectors;
 
 /*
 // to write data processing pipelines in declarative way
-
 e.g
-
     -> filtering
     -> soring
     -> transformation
@@ -21,7 +19,6 @@ e.g
     -> grouping
     -> joining
     ....
-
  */
 
 
