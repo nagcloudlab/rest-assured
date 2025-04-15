@@ -1,18 +1,23 @@
 package com.example.model;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.ToString;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
+import java.io.Serializable;
+
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 @ToString
 @EqualsAndHashCode
-public class Apple implements Comparable<Apple>{
-    
+public class Apple implements Comparable<Apple>, Serializable {
+
+    private static final long serialVersionUID = 135434534535546345L;
+
+    @JsonIgnore
     private int weight;
-    private String color;
+    private transient String color;
 
     @Override
     public int compareTo(Apple o) {
