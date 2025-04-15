@@ -4,7 +4,7 @@ package com.example.lambda;
   Method Reference
  */
 
-import com.example.util.FoodUtil;
+import com.example.lambda.util.FoodUtil;
 
 import java.util.function.Predicate;
 

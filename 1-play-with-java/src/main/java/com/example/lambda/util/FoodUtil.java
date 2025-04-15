@@ -1,4 +1,4 @@
-package com.example.util;
+package com.example.lambda.util;
 
 import java.util.List;
 

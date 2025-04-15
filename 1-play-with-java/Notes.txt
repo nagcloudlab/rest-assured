@@ -1,0 +1,35 @@
+
+
+---------------------
+java data types
+---------------------
+
+ 1. simple / primtive types 
+ 2. composite types
+
+    a. interface
+    b. class
+    c. enum  ( group of related contants under type)
+    d. annotation
+    e. record ( from java 14)
+
+
+
+ --------------------------------------------------
+
+
+ how to run javascript program ?
+
+   -> using javascript interpreter/engine
+
+   browser envi:
+   -> chrome ( v8 engine ( c++ ) )
+   -> firefox ( spidermonkey engine ( c++ ) )
+   -> safari ( javascript core engine ( c++ ) )
+   -> edge ( chakra engine ( c++ ) )
+   ...
+
+   non-browser envi:
+
+   -> node.js ( v8 engine ( c++ ) )  console/server side application
+   -> JVM ( nashorn engine ( java ) )  - java 1.8
