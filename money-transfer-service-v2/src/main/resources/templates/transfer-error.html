@@ -18,13 +18,9 @@
 
     <div class="row">
         <div class="col-6">
-            <h2>Transfer Status</h2>
+            <h2>Transfer Error</h2>
             <hr/>
-            <p>Status: <span th:text="${transferResponse.status}"></span></p>
-            <p>From Account: <span th:text="${transferResponse.fromAccount}"></span></p>
-            <p>To Account: <span th:text="${transferResponse.toAccount}"></span></p>
-            <p>Amount: <span th:text="${transferResponse.amount}"></span></p>
-            <p>Transfer ID: <span th:text="${transferResponse.transferId}"></span></p>
+            <p>Message: <span class="text-danger" th:text="${errorMessage}"></span></p>
         </div>
 
 </div>

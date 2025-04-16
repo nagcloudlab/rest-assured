@@ -1,0 +1,126 @@
+
+imp-note:
+
+REST api is not specific HTTP protocol.
+It is a set of architectural principles for designing networked applications.
+i.e REST is an architectural style, not a protocol.
+
+but HTTP is the most common protocol used to implement RESTful APIs.
+
+-------------------------------------------------------
+steps to design REST api ( Interface )
+-------------------------------------------------------
+
+1. Identify the resources: Determine the main entities in your application.
+For a money transfer service, these might include:
+
+   - Users
+   - Accounts
+   - Transactions
+   - Transfers
+   - ....
+
+2. Know the relationships: Understand how these resources relate to each other.
+    For example, a user can have multiple accounts, and an account can have multiple transactions.
+
+
+3. Define the endpoints for each resource:
+Create a list of endpoints that will allow clients to interact with the resources.
+
+   For example:
+   /users
+   /users/{userId}
+   /accounts
+   /accounts/{accountId}
+   /users/{userId}/accounts
+
+4. Define the operations using HTTP methods:
+
+    read the resource:
+
+    GET -  Retrieve a resource or a collection of resources.
+    HEAD - Retrieve metadata about a resource without the response body.
+    OPTIONS - Retrieve the supported HTTP methods for a resource.
+
+    write the resource:
+
+    POST - Create a unknown resource.   ( e.g /order )
+    POST - to execute action on a resource. ( e.g /order/123/approve, /login , /transfer )
+    PUT  - to create or update a known resource. ( e.g /order/123 )
+    PATCH - to partial update a known resource. ( e.g /order/123 )
+    DELETE - Remove a resource.
+
+    For example:
+
+    - GET /users - Retrieve a list of users
+    - GET /users/{userId} - Retrieve a specific user
+    - POST /users - Create a new user
+    - PUT /users/{userId} - Update a specific user
+    - DELETE /users/{userId} - Delete a specific user
+    - POST /transfer - Initiate a new transfer
+
+
+
+5. Define the request and response formats:
+
+    - Specify the request body format (e.g., JSON, XML) for POST and PUT requests.
+    - Define the response format for all endpoints, including success and error responses.
+    - Use standard HTTP status codes to indicate the result of the operation (e.g., 200 OK, 201 Created, 400 Bad Request, 404 Not Found).
+    - Include relevant headers (e.g., Content-Type, Accept) to specify the format of the request and response.
+
+    For example:
+
+    POST /transfer
+
+    Request Body:
+    {
+        "fromAccountId": "12345",
+        "toAccountId": "67890",
+        "amount": 100.00
+    }
+
+    Response Body:
+    {
+        "transactionId": "abc123",
+        "status": "pending"
+    }
+
+-----------------------------------------------------------------------------
+HTTP Status Codes
+-----------------------------------------------------------------------------
+
+1xx: Informational
+2xx: Success
+3xx: Redirection
+4xx: Client Error
+5xx: Server Error
+
+Ref : https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
+
+
+For example:
+
+    Input validation errors: 400 Bad Request
+    Authentication errors: 401 Unauthorized
+    Duplicate resource errors: 409 Conflict
+    Resource not found errors: 404 Not Found
+
+
+    Empty response: 204 No Content
+    Server errors: 500 Internal Server Error
+    Service unavailable errors: 503 Service Unavailable
+    Rate limiting errors: 429 Too Many Requests
+
+
+------------------------------------------------------
+standard headers | custom headers
+------------------------------------------------------
+
+1. Content-Type: Specifies the media type of the resource (e.g., application/json, application/xml).
+2. Accept
+3. Authorization: Contains credentials for authenticating the client (e.g., Bearer token).
+4. Location: Used in responses to indicate the URL of a newly created resource (e.g., after a POST request).
+5. Cache-Control: Directives for caching mechanisms in both requests and responses.
+
+6. ETag: A unique identifier for a specific version of a resource, used for caching and conditional requests.
+
