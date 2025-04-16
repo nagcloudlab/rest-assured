@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+
+<div class="container">
+    <div class="display-1">money-transfer-service</div>
+    <hr/>
+    <a href="transfer">
+        <button class="btn btn-primary">Transfer</button>
+    </a>
+    <hr/>
+
+    <div class="row">
+        <div class="col-6">
+            <h2>Transfer Error</h2>
+            <hr/>
+            <p>Message: <span class="text-danger" th:text="${errorMessage}"></span></p>
+        </div>
+
+</div>
+
+
+
+</body>
+</html>
