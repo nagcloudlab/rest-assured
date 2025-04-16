@@ -1,4 +1,4 @@
-package com.example.testrunner;
+package com.example.day2.testrunner;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -9,7 +9,7 @@ public class TestRunner {
         int passed = 0;
         try {
             // load test-cases ( dynamic class loading )
-            Class<?> clazz = Class.forName("com.example.testcases.CalculatorTest");
+            Class<?> clazz = Class.forName("com.example.day2.testcases.CalculatorTest");
             // instantiate test-cases
             Object testCase = clazz.getDeclaredConstructor().newInstance();
             // find test-methods

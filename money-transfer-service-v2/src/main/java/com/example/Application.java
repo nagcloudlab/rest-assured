@@ -1,10 +1,14 @@
 package com.example;
 
 import com.example.repository.AccountRepository;
-import com.example.repository.AccountRepositoryFactory;
 import com.example.service.TransferService;
 import com.example.service.UpiTransferService;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
+@SpringBootApplication
 public class Application {
 
     private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger("money-transfer-service");
@@ -12,29 +16,20 @@ public class Application {
     public static void main(String[] args) {
 
         //--------------------------------------
-        // init / boot phase ,
+        // init / boot phase
         //--------------------------------------
         LOGGER.info("-".repeat(50));
-        AccountRepository jdbcAccountRepository = AccountRepositoryFactory.getAccountRepository("jdbc");
-        TransferService upiTransferService = new UpiTransferService(jdbcAccountRepository);
-        LOGGER.info("-".repeat(50));
-        //---------------------------------------
-        // use phase
-        //---------------------------------------
-
-        upiTransferService.transfer("user1@upi", "user2@upi", 100);
-        LOGGER.info("-".repeat(50));
-        upiTransferService.transfer("user1@upi", "user2@upi", 100);
-
-        //---------------------------------------
-        // shutdown phase
-        //---------------------------------------
-        LOGGER.info("-".repeat(50));
-
-
-        // Perform any necessary cleanup or shutdown operations here
+        SpringApplication.run(Application.class, args);
         LOGGER.info("-".repeat(50));
 
 
     }
+
+    @Bean
+    public CommandLineRunner commandLineRunner(TransferService upiTransferService) {
+        return args -> {
+            upiTransferService.transfer("ACC002", "ACC001", 100);
+        };
+    }
+
 }

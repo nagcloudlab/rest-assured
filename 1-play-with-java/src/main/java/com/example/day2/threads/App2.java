@@ -1,4 +1,4 @@
-package com.example.threads;
+package com.example.day2.threads;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

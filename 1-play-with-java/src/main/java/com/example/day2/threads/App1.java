@@ -1,4 +1,4 @@
-package com.example.threads;
+package com.example.day2.threads;
 
 public class App1 {
 

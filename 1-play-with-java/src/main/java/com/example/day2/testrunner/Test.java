@@ -1,4 +1,4 @@
-package com.example.testrunner;
+package com.example.day2.testrunner;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

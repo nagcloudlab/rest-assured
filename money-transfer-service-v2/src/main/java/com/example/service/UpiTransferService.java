@@ -2,22 +2,27 @@ package com.example.service;
 
 import com.example.entity.Account;
 import com.example.repository.AccountRepository;
-import com.example.repository.AccountRepositoryFactory;
-import com.example.repository.JdbcAccountRepository;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Service
 public class UpiTransferService implements TransferService {
 
     private static final org.slf4j.Logger LOGGER= org.slf4j.LoggerFactory.getLogger("money-transfer-service");
 
-
     private AccountRepository accountRepository;
 
     // Constructor injection
-    public UpiTransferService(AccountRepository accountRepository) {
+    public UpiTransferService(@Qualifier("jpa") AccountRepository accountRepository) {
         this.accountRepository = accountRepository; // Use the injected repository
         LOGGER.info("UpiTransferService initialized");
     }
 
+    @Transactional(
+            transactionManager = "transactionManager", // Specify the transaction manager
+            rollbackFor = Exception.class // Rollback for all exceptions
+    )
     public void transfer(String fromAccountId, String toAccountId, double amount) {
 
         LOGGER.info("Transferring {} from {} to {}", amount, fromAccountId, toAccountId);

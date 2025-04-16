@@ -1,4 +1,4 @@
-package com.example.stream;
+package com.example.day1.stream;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,8 +1,7 @@
 package com.example.day2;
 
 
-import com.example.model.Apple;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.example.day1.model.Apple;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;

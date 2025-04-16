@@ -1,7 +1,7 @@
-package com.example.stream;
+package com.example.day1.stream;
 
 
-import com.example.model.Dish;
+import com.example.day1.model.Dish;
 
 import java.util.ArrayList;
 import java.util.Comparator;

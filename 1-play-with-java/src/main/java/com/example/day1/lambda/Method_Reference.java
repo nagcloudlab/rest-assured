@@ -1,10 +1,10 @@
-package com.example.lambda;
+package com.example.day1.lambda;
 
 /*
   Method Reference
  */
 
-import com.example.lambda.util.FoodUtil;
+import com.example.day1.lambda.util.FoodUtil;
 
 import java.util.function.Predicate;
 

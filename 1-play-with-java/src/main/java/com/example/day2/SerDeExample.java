@@ -1,6 +1,6 @@
 package com.example.day2;
 
-import com.example.model.Apple;
+import com.example.day1.model.Apple;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;

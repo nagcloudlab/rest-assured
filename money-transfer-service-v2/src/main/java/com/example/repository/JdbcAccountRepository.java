@@ -1,7 +1,11 @@
 package com.example.repository;
 
 import com.example.entity.Account;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Repository;
 
+@Repository
+@Qualifier("jdbc")
 public class JdbcAccountRepository implements AccountRepository {
 
     private static final org.slf4j.Logger LOGGER= org.slf4j.LoggerFactory.getLogger("money-transfer-service");

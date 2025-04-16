@@ -1,6 +1,6 @@
-package com.example.testcases;
+package com.example.day2.testcases;
 
-import com.example.testrunner.Test;
+import com.example.day2.testrunner.Test;
 
 public class CalculatorTest {
 

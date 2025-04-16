@@ -1,6 +1,6 @@
-package com.example.stream;
+package com.example.day1.stream;
 
-import com.example.model.Apple;
+import com.example.day1.model.Apple;
 
 import java.util.List;
 

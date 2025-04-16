@@ -1,4 +1,4 @@
-package com.example.lambda;
+package com.example.day1.lambda;
 
 
 
@@ -8,7 +8,7 @@ package com.example.lambda;
     2. declarative programming
  */
 
-import com.example.model.Apple;
+import com.example.day1.model.Apple;
 
 import java.util.List;
 

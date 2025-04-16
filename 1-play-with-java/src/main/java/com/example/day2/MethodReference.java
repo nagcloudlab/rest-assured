@@ -1,12 +1,11 @@
 package com.example.day2;
 
-import com.example.model.Dish;
+import com.example.day1.model.Dish;
 
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Function;
-import java.util.function.Supplier;
 
 // to use existing java methods as functions , use method reference
 public class MethodReference {

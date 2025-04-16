@@ -1,4 +1,4 @@
-package com.example.exercise;
+package com.example.day1.exercise;
 
 import java.io.*;
 import java.nio.file.Files;

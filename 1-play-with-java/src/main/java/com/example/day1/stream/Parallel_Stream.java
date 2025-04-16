@@ -1,9 +1,8 @@
-package com.example.stream;
+package com.example.day1.stream;
 
-import com.example.model.Dish;
+import com.example.day1.model.Dish;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Parallel_Stream {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.example.threads;
+package com.example.day2.threads;
 
 import java.io.BufferedReader;
 import java.io.File;

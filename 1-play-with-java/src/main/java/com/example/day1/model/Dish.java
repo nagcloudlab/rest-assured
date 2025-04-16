@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.day1.model;
 
 import java.util.List;
 

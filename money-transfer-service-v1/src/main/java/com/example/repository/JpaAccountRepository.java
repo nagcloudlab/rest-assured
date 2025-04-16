@@ -2,12 +2,12 @@ package com.example.repository;
 
 import com.example.entity.Account;
 
-public class JpaAccountRepository {
+public class JpaAccountRepository implements AccountRepository{
 
     private static final org.slf4j.Logger LOGGER= org.slf4j.LoggerFactory.getLogger("money-transfer-service");
 
     public JpaAccountRepository(){
-        LOGGER.info("JdbcAccountRepository initialized");
+        LOGGER.info("JpaAccountRepository initialized");
     }
 
     public Account loadAccount(String accountNumber) {

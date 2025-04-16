@@ -5,6 +5,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/1-play-with-java/pom.xml" />
+        <option value="$PROJECT_DIR$/money-transfer-service-v1/pom.xml" />
+        <option value="$PROJECT_DIR$/money-transfer-service-v2/pom.xml" />
       </list>
     </option>
   </component>
