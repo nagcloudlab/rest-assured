@@ -1,0 +1,7 @@
+curl -X POST http://localhost:8080/api/transfer \
+  -H "Content-Type: application/json" \
+  -d '{
+    "fromAccount": "1",
+    "toAccount": "2",
+    "amount": 100.0
+}'

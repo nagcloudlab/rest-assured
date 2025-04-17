@@ -4,10 +4,14 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
-        <option value="$PROJECT_DIR$/1-play-with-java/pom.xml" />
         <option value="$PROJECT_DIR$/money-transfer-service-v1/pom.xml" />
         <option value="$PROJECT_DIR$/money-transfer-service-v2/pom.xml" />
         <option value="$PROJECT_DIR$/money-transfer-service-v3/pom.xml" />
+        <option value="$PROJECT_DIR$/4-money-transfer-service-v3/pom.xml" />
+        <option value="$PROJECT_DIR$/5-play-with-REST-assured/pom.xml" />
+        <option value="$PROJECT_DIR$/1-play-with-java/pom.xml" />
+        <option value="$PROJECT_DIR$/2-money-transfer-service-v1/pom.xml" />
+        <option value="$PROJECT_DIR$/3-money-transfer-service-v2/pom.xml" />
       </list>
     </option>
   </component>

@@ -1,8 +1,8 @@
 package com.example.web;
 
 import com.example.service.TransferService;
-import com.example.web.dto.TransferRequest;
-import com.example.web.dto.TransferResponse;
+import com.example.dto.TransferRequest;
+import com.example.dto.TransferResponse;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
+// View ( HTML ) Controller for handling transfer requests
 @Controller
 public class TransferController {
 
-    private TransferService transferService;
+    private final TransferService transferService;
 
     public TransferController(TransferService transferService) {
         this.transferService = transferService;
@@ -38,21 +40,8 @@ public class TransferController {
            @ModelAttribute TransferRequest transferRequest,
            Model model
     ) {
-        transferService.transfer(
-                transferRequest.getFromAccount(),
-                transferRequest.getToAccount(),
-                transferRequest.getAmount()
-        );
-
-        TransferResponse transferResponse=new TransferResponse();
-        transferResponse.setFromAccount(transferRequest.getFromAccount());
-        transferResponse.setToAccount(transferRequest.getToAccount());
-        transferResponse.setAmount(transferRequest.getAmount());
-        transferResponse.setStatus("Success");
-        transferResponse.setTransferId("12345"); // Example transfer ID
-
+        TransferResponse transferResponse=transferService.transfer(transferRequest);
         model.addAttribute("transferResponse", transferResponse);
-
         return "transfer-response"; // View name for the response page
     }
 

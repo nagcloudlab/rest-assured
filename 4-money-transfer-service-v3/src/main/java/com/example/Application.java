@@ -25,11 +25,4 @@ public class Application {
 
     }
 
-//    @Bean
-//    public CommandLineRunner commandLineRunner(TransferService upiTransferService) {
-//        return args -> {
-//            upiTransferService.transfer("ACC002", "ACC001", 100);
-//        };
-//    }
-
 }

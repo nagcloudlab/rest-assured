@@ -3,7 +3,8 @@ imp-note:
 
 REST api is not specific HTTP protocol.
 It is a set of architectural principles for designing networked applications.
-i.e REST is an architectural style, not a protocol.
+i.e REST is an architectural style, not a protocol/framework.
+
 
 but HTTP is the most common protocol used to implement RESTful APIs.
 
@@ -60,7 +61,6 @@ Create a list of endpoints that will allow clients to interact with the resource
     - POST /transfer - Initiate a new transfer
 
 
-
 5. Define the request and response formats:
 
     - Specify the request body format (e.g., JSON, XML) for POST and PUT requests.
@@ -74,8 +74,8 @@ Create a list of endpoints that will allow clients to interact with the resource
 
     Request Body:
     {
-        "fromAccountId": "12345",
-        "toAccountId": "67890",
+        "fromAccount": "12345",
+        "toAccount": "67890",
         "amount": 100.00
     }
 
@@ -124,3 +124,18 @@ standard headers | custom headers
 
 6. ETag: A unique identifier for a specific version of a resource, used for caching and conditional requests.
 
+
+
+-----------------------------------------------------------
+
+
+How to implement REST API with 'java language'?
+
+- JAX-RS: A Java API for building RESTful web services.
+  It provides annotations and interfaces to create RESTful endpoints.
+
+- Spring Boot: A popular framework for building Java applications, including RESTful APIs.
+  It simplifies the development process with built-in features like dependency injection, configuration, and more.
+
+
+-----------------------------------------------------------

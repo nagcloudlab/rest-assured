@@ -1,4 +1,4 @@
-package com.example.web.dto;
+package com.example.dto;
 
 public class TransferResponse {
 
