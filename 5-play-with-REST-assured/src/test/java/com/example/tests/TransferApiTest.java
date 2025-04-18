@@ -13,9 +13,8 @@ import java.util.List;
 import static io.restassured.RestAssured.*;
 
 
-public class TransferApiTest {
+public class TransferApiTest extends BaseTransferApiTest {
 
-    // Arrange
     @Test
     public void sampleTest() {
         // Sample test code
@@ -38,25 +37,25 @@ public class TransferApiTest {
         assertThat(5, greaterThanOrEqualTo(5));
         assertThat(5, lessThanOrEqualTo(5));
         assertThat(5, not(equalTo(6)));
-        assertThat(5.0,closeTo(5.1, 0.1)); // 5.1 - 0.2 = 4.9, 5.1 + 0.2 = 5.3
+        assertThat(5.0, closeTo(5.1, 0.1)); // 5.1 - 0.2 = 4.9, 5.1 + 0.2 = 5.3
 
 
         // collection matchers
-        assertThat(List.of(1,2,3,4,5,6,7,8,9,10), hasItem(1));
-        assertThat(List.of(1,2,3,4,5,6,7,8,9,10), hasItems(1,2));
-        assertThat(List.of(1,2,3,4,5,6,7,8,9,10), hasSize(10));
-        assertThat(List.of(1,2,3,4,5,6,7,8,9,10), everyItem(greaterThan(0)));
-        assertThat(List.of(1,2,3,4,5,6,7,8,9,10), everyItem(lessThan(11)));
-        assertThat(List.of(1,2,3,4,5,6,7,8,9,10), not(hasItem(11)));
-        assertThat(List.of(1,2,3,4,5,6,7,8,9,10), not(hasItems(11,12)));
+        assertThat(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), hasItem(1));
+        assertThat(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), hasItems(1, 2));
+        assertThat(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), hasSize(10));
+        assertThat(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), everyItem(greaterThan(0)));
+        assertThat(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), everyItem(lessThan(11)));
+        assertThat(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), not(hasItem(11)));
+        assertThat(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), not(hasItems(11, 12)));
 
         // combination matchers
-        assertThat(List.of(1,2,3,4,5,6,7,8,9,10), allOf(hasItem(1), hasItem(2), hasItem(3)));
-        assertThat(List.of(1,2,3,4,5,6,7,8,9,10), anyOf(hasItem(1), hasItem(11), hasItem(12)));
+        assertThat(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), allOf(hasItem(1), hasItem(2), hasItem(3)));
+        assertThat(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), anyOf(hasItem(1), hasItem(11), hasItem(12)));
         // both
-        assertThat(List.of(1,2,3,4,5,6,7,8,9,10), both(hasItem(1)).and(hasItem(2)));
+        assertThat(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), both(hasItem(1)).and(hasItem(2)));
         // either
-        assertThat(List.of(1,2,3,4,5,6,7,8,9,10), either(hasItem(1)).or(hasItem(11)));
+        assertThat(List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10), either(hasItem(1)).or(hasItem(11)));
 
     }
 
@@ -66,24 +65,23 @@ public class TransferApiTest {
     public void transferMoneyTest() {
 
         String requestBody = """
-            {
-              "fromAccount": "1",
-              "toAccount": "2",
-              "amount": 100.0
-            }
-            """;
+                {
+                  "fromAccount": "3",
+                  "toAccount": "4",
+                  "amount": 100.0
+                }
+                """;
         given()
-                .contentType("application/json")
+                .spec(transferRequestSpec)
                 .body(requestBody)
-                .log().body()
                 .when()
-                .post("/api/transfer")
+                .post()
                 .then()
+                .spec(transferResponseSpec)
                 .body("status", equalTo("SUCCESS"))
                 .body("amount", equalTo(100.0f)) // for float/double use f
-                .body("fromAccount", startsWith("1"))
-                .body("transferId", isValidTransferId)
-                .log().body(); // To show all
+                .body("fromAccount", startsWith("3"))
+                .body("transferId", isValidTransferId);
 
     }
 
@@ -91,12 +89,11 @@ public class TransferApiTest {
         public void describeTo(Description description) {
             description.appendText("a valid transfer id starting with TRX");
         }
+
         protected boolean matchesSafely(String id) {
             return id != null && id.startsWith("TRX") && id.length() > 5;
         }
     };
-
-
 
 
 }

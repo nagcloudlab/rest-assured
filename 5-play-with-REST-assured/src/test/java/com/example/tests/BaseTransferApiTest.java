@@ -12,14 +12,10 @@ public class BaseTransferApiTest {
     protected static RequestSpecification transferRequestSpec;
     protected static ResponseSpecification transferResponseSpec;
 
-    private static String baseURI;
-    private static int port;
 
     @BeforeAll
     public static void setupSpecs() {
-        baseURI = "http://localhost";
-        port = 8080;
-
+        System.out.println("Setting up specs...");
         transferRequestSpec = new RequestSpecBuilder()
                 .setBasePath("/api/transfer")
                 .addHeader("Content-Type", "application/json")

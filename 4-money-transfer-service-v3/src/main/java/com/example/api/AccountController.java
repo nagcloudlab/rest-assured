@@ -5,6 +5,7 @@ import com.example.dto.NewAccountRequest;
 import com.example.dto.NewAccountResponse;
 import com.example.dto.UpdateAccountRequest;
 import com.example.entity.Account;
+import com.example.exception.AccountNotFoundException;
 import com.example.repository.AccountRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 public class AccountController {
 
 
-    private AccountRepository accountRepository;
+    private final AccountRepository accountRepository;
 
     public AccountController(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
@@ -38,7 +39,10 @@ public class AccountController {
         newAccountResponse.setStatus("success");
         newAccountResponse.setMessage("Account created successfully");
 
-        return ResponseEntity.status(HttpStatus.CREATED).body(newAccountResponse);
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .header("Location", "/api/accounts/" + newAccountResponse.getNumber())
+                .body(newAccountResponse);
 
     }
 
@@ -48,12 +52,12 @@ public class AccountController {
     @GetMapping("/{accountNumber}")
     public ResponseEntity<?> getAccount(@PathVariable String accountNumber) {
         Account account = accountRepository.findById(accountNumber).orElse(null);
+        if (account == null) {
+           throw new AccountNotFoundException(accountNumber);
+        }
         AccountResponse accountResponse = new AccountResponse();
         accountResponse.setNumber(account.getNumber());
         accountResponse.setBalance(account.getBalance());
-        if (account == null) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Account not found");
-        }
         return ResponseEntity.ok(accountResponse);
     }
 
