@@ -12,11 +12,10 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@Tag(name = "Money Transfer API", description = "Endpoints for transferring money")
+@Tag(name = "Transfer", description = "Endpoints for transferring money")
 @RestController(value = "transferApiController")
 @RequestMapping("/api/transfer")
 public class TransferController {
-
 
     private final TransferService transferService;
 

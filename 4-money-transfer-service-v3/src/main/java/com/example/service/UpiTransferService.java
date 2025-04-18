@@ -3,12 +3,17 @@ package com.example.service;
 import com.example.dto.TransferRequest;
 import com.example.dto.TransferResponse;
 import com.example.entity.Account;
+import com.example.entity.TransferHistory;
 import com.example.exception.AccountNotFoundException;
 import com.example.exception.InsufficientFundsException;
 import com.example.repository.AccountRepository;
+import com.example.repository.TransferHistoryRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Service
 public class UpiTransferService implements TransferService {
@@ -16,9 +21,12 @@ public class UpiTransferService implements TransferService {
     private static final org.slf4j.Logger LOGGER = org.slf4j.LoggerFactory.getLogger("money-transfer-service");
 
     private final AccountRepository accountRepository;
+    private final TransferHistoryRepository transferHistoryRepository;
 
-    public UpiTransferService(@Qualifier("jpa") AccountRepository accountRepository) {
+    public UpiTransferService(@Qualifier("jpa") AccountRepository accountRepository,
+                              TransferHistoryRepository transferHistoryRepository) {
         this.accountRepository = accountRepository;
+        this.transferHistoryRepository = transferHistoryRepository;
         LOGGER.info("UpiTransferService initialized");
     }
 
@@ -51,6 +59,17 @@ public class UpiTransferService implements TransferService {
         // Step 5: Persist changes
         accountRepository.save(fromAccount);
         accountRepository.save(toAccount);
+
+
+        // Transfer History
+        TransferHistory transferHistory = new TransferHistory();
+        transferHistory.setFromAccount(transferRequest.getFromAccount());
+        transferHistory.setToAccount(transferRequest.getToAccount());
+        transferHistory.setAmount(transferRequest.getAmount());
+        transferHistory.setTimestamp(LocalDateTime.now());
+        transferHistory.setStatus("SUCCESS");
+        LOGGER.info("Transfer history: {}", transferHistory);
+        transferHistoryRepository.save(transferHistory);
 
         // Step 6: Build response
         TransferResponse response = new TransferResponse(
