@@ -1,6 +1,5 @@
 package com.example.tests;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.hamcrest.Matchers.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 
@@ -14,7 +13,7 @@ import java.util.List;
 import static io.restassured.RestAssured.*;
 
 
-public class SampleTest {
+public class TransferApiTest {
 
     // Arrange
     @Test
@@ -76,6 +75,7 @@ public class SampleTest {
         given()
                 .contentType("application/json")
                 .body(requestBody)
+                .log().body()
                 .when()
                 .post("/api/transfer")
                 .then()
