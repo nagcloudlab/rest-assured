@@ -66,8 +66,8 @@ public class TransferApiTest extends BaseTransferApiTest {
 
         String requestBody = """
                 {
-                  "fromAccount": "3",
-                  "toAccount": "4",
+                  "fromAccount": "A001",
+                  "toAccount": "A002",
                   "amount": 100.0
                 }
                 """;
@@ -80,7 +80,7 @@ public class TransferApiTest extends BaseTransferApiTest {
                 .spec(transferResponseSpec)
                 .body("status", equalTo("SUCCESS"))
                 .body("amount", equalTo(100.0f)) // for float/double use f
-                .body("fromAccount", startsWith("3"))
+                .body("fromAccount", startsWith("A001"))
                 .body("transferId", isValidTransferId);
 
     }

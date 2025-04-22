@@ -35,6 +35,7 @@ public class TransferController {
             produces = "application/json"
     )
     public ResponseEntity<TransferResponse> transferMoney(@RequestBody @Valid TransferRequest request) {
+        System.out.println(transferService.getClass());
         TransferResponse response = transferService.transfer(request);
         return ResponseEntity.ok(response);
     }

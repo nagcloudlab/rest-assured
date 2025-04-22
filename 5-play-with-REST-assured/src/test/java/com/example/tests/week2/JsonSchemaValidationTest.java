@@ -5,7 +5,8 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.*;
+
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 public class JsonSchemaValidationTest {
 
@@ -26,7 +27,7 @@ public class JsonSchemaValidationTest {
                 .post()
                 .then()
                 .statusCode(200)
-                .body(JsonSchemaValidator.matchesJsonSchemaInClasspath("schemas/transfer-response-schema.json"));
+                .body(matchesJsonSchemaInClasspath("schemas/transfer-response-schema.json"));
     }
 }
 
